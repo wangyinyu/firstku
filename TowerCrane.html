@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap-theme.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/TowerCrane.css" />
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/echarts.js"></script>
+    	<script src="js/common.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/highcharts.js"></script>
+		<script src="js/highcharts-3d.js"></script>
+		<script type="text/javascript" src="js/TowerCrane.js" ></script>
+	</head>
+	<body>
+		<!--头部导航条开始banner部分-->
+		<!--<div class="head">
+			<div class="head_left">
+				xxxxxxxxxxxxxxxxxx工程
+			</div>
+			<div class="head_right">
+				<span class="glyphicon glyphicon-user"></span>
+				<span> 您好,admin<span/>
+				<span class="glyphicon glyphicon-bell"></span>
+				<span class="glyphicon glyphicon-envelope"></span>
+				<span class="glyphicon glyphicon-off"></span>
+			</div>
+		</div>-->
+		<div class="head_big">
+			<table class="head">
+				<tr>
+					<td class="head_left"><span>xxxxxxxxxxxxxxxxxx工程</span></td>
+					<td class="head_right"><span class="glyphicon glyphicon-user"></span>
+					<span> 您好,admin<span/>
+					<span class="glyphicon glyphicon-bell"></span>
+					<span class="glyphicon glyphicon-envelope"></span>
+					<span class="glyphicon glyphicon-off"></span></td>
+				</tr>
+			</table>
+		</div>
+		<!--中间大部分盒子开始-->
+		<div class="big_center">
+			<!--左侧布局开始-->
+			<div class="main_left pull-left">
+				<!--左侧上方大盒子-->
+				<div class="left_big" style="height: 98%;">
+					<!--放塔吊背景图的大盒子-->
+					<div class="taji_big">
+						<div class="taji_top">
+							<p>风速：<span>0级</span></p>
+							<p>力矩百分比：<span>0.0%</span></p>
+							<p>安全吊重：<span>3t</span></p>
+						</div>
+						<div class="taji_bottom">
+							<p>前臂长：<span>60m</span></p>
+							<p>塔机高：<span>25m</span></p>
+							<p>载重：<span>0t</span></p>
+							<p>幅度：<span>6.5m</span></p>
+							<p>高度：<span>23.3m</span></p>
+							<p>回转角度：<span>153.4°</span></p>
+							<p>倾斜角度：<span>0.0°</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--中间部分开始-->
+			<div class='main_center pull-left'>
+				<!--中间圆型图片定位开始-->
+				<!--<div id='map'>-->
+					<div class="left_big" style="height: 49%;margin-top: 2%;">
+						<div class="div_title">
+							<span class="span_title">塔机今日数据</span>
+						</div>
+						<!--统计表开始-->
+						<div id='mainCenterBottom'>
+						
+						</div>
+					</div>
+				<!--</div>-->
+				<div class="left_big center_shebei" style="height: 48%;margin-top: 2%;">
+					<div id="mainLeftBottom" style="height: 100%;width: 100%;margin: 0;">
+						<!--上侧标题开始-->
+						<div class="div_title">
+							<span class="span_title">塔机今日警告</span>
+						</div>
+						<div class="leftBottomBoder" style="text-align: center;margin: 0;height: 80%;">
+							<div id='taji_two'>
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<!--右侧布局开始-->
+			<div class="main_right pull-right">
+				<!--右侧第一个大盒子-->
+				<div class="left_big" style="height: 49%;">
+					<div id='statistical_rightBottom' class="color_w" style="height: 100%;">
+						<div class="div_title">
+							<span class="span_title">塔机实时吊重</span>
+						</div>
+						<div id='taji'>
+							
+						</div>
+					</div>
+				</div>
+			
+				<div class="left_big"style="height: 48%;">
+					<div id='statistical_rightBottom' class="color_w" style="height: 100%;">
+						<div class="div_title">
+							<span class="span_title">塔机15日情况</span>
+							<div class="clearfix"></div>
+						</div>
+						<div id='material'>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</body>
+</html>

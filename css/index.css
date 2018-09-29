@@ -1,0 +1,226 @@
+.color_w{
+				height: 75%;
+				background-color: #2C4166 !important;
+			}
+			.main_left{
+				margin-left: 1%;
+				width: 25%;
+				height: 100%;
+			}
+			.main_center{
+				margin: 0 1.5%;
+				text-align: center;
+				width: 45%;
+				height: 100%;
+			}
+			.main_right{
+				margin-right: 1%;
+				width: 25%;
+				height: 100%;
+			}
+			#wrong-message{
+				
+			}
+			#map{
+				width: 100%;
+				height:58%;
+				background-color: #3F4A5E !important;
+			}
+			#statistical_rightBottom{
+				text-align: center;
+			}
+			.mainCenterBottomLeft{
+				border-top: 0.01rem solid #32BDFE;
+				padding-top: 0.1rem;
+				float: left;
+				width: 49%;
+				height: 100%;
+				background-color: #2C4166 !important;
+			}
+			.mainCenterBottomRight{
+				border-top: 0.01rem solid #32BDFE;
+				padding-top: 0.1rem;
+				float: right;
+				width: 49%;
+				height: 100%;
+				background-color: #2C4166 !important;
+			}
+			#mainCenterBottom{
+				width: 100%;
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			#mainCenterBottom1{
+				width: 100%;
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			.leftBottomBoder{
+				width: 100%;
+				margin: 0 2%;
+			}
+			.leftBottomBoder li{
+				width: 23.3%;
+				/*text-align: center;*/
+				list-style: none;
+				float: left;
+				margin-right: 0.05rem;
+				background-color: #456FA3;
+				cursor: pointer;
+				color: #fff;
+			}
+			.main_left .leftBottomBoder .ul_li li{
+				width: 31%;
+			}
+			#mainLeftBottom{
+				text-align: center;
+			}
+			.li_div{
+				width: 100%;
+				padding: 0.05rem;
+				 /*display: flex;
+    			align-items: center;*/
+    			text-align: center !important;
+    			font-size: 0.14rem;
+			}
+			.li_active{
+				background-color: #80B2ED !important;
+				color: #3D5C9C !important;
+			}
+			.li_span{
+				border-radius: 50%;
+				background-color: red;
+				display: flex;
+    			align-items: center;
+    			padding: 0.02rem;
+    			color: #fff;
+    			margin-left: 0.02rem;
+			}
+			ul{
+				padding: 0;
+			}
+			.statisticalBottomBoder{
+				margin: 0 2%;
+				background-color: #266AAB;
+				color: #fff;
+				font-size: 0.18rem;
+				border: 0.01rem solid #58B1D1;
+			}
+			.span_title{
+				font-size: 0.2rem;
+				margin-left: 0.1rem;
+				color: #fff;
+			}
+			.div_title{
+				height: 11%;
+				font-weight: bold;
+			}
+			.span_img{
+				width: 0.4rem;
+				cursor: pointer;
+				color: #fff;
+			}
+			.span_select{
+				margin-right: 0.1rem;
+			}
+			.left_big{
+				background-color: #2C4166 !important;
+				padding-top: 0.1rem;
+				margin-top: 2%;
+				height: 32%;
+				border-top: 0.01rem solid #32BDFE;
+			}
+			.see{
+					border: 0.01rem solid #93BCDE;
+					border-radius: 12%;
+					color: #8AB2D5;
+					font-size: 0.18rem;
+					padding:0 0.1rem;
+					margin-right: 0.2rem;
+					cursor: pointer;
+				}
+			@media screen and (min-width: 760px) {
+				.main_right{
+						top:241% !important;
+					}
+				.main_left{
+					top:133% !important;
+				}
+			}
+			@media screen and (max-width: 760px) {
+				.paimin{
+					
+				}
+			}
+			@media screen and (max-width: 320px) {
+				.main_center .map_select{
+						height: 8% !important;
+					}
+				#map{
+					height: 57% !important;
+				}	
+			}
+			@media screen and (max-width: 1023px) {
+					.see{
+					border: 1px solid #93BCDE;
+				}
+					.leftBottomBoder li{
+						width: 23.8%;
+					}
+					.main_left{
+						float: none;
+						width: 100%;
+						margin: 0;
+						position: absolute;
+						top:134%;
+					}
+					.main_center{
+						position: absolute;
+						top:7%;
+						float: none;
+						width: 100%;
+						margin: 0;
+						margin-top: -7%;
+					}
+					.main_right{
+						float: none;
+						width: 100%;
+						margin: 0;
+						margin-top: -10%;
+						position: absolute;
+						top:239%;
+					}
+					.left_big{
+						background-color: #2C4166 !important;
+						padding-top: 0.1rem;
+						margin-top: 2%;
+						height: 32%;
+						border-top: 1px solid #32BDFE;
+					}
+					.map_select{
+						height: 7% !important;
+					}
+					.span_img{
+						width: 1.4rem;
+					}
+					#statistical_rightBottom li{
+						list-style: none;
+					}
+					#mainLeftBottom li{
+						list-style: none;
+					}
+					.mainCenterBottomLeft{
+						width: 100%;
+						margin-bottom: 2%;
+					}
+					.mainCenterBottomRight{
+						width: 100%;
+					}
+					.paimin{
+						margin-right: 1rem !important;
+					}
+				}
+				#ec4{
+					width: 100%;
+					height: 80%;
+				}

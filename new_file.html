@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap-theme.css" />
+		<link href="js/jquery-easyui-1.4.3/themes/default/easyui.css" rel="stylesheet" />
+    	<link href="js/jquery-easyui-1.4.3/themes/icon.css" rel="stylesheet" />
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-easyui-1.4.3/jquery.easyui.min.js" type="text/javascript"></script>
+    	<script src="js/jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/echarts-all.js" ></script>
+		<script src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/new_file.js" ></script>
+		<script>
+		
+      (function (doc, win) {
+          var docEl = doc.documentElement,
+              resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+              recalc = function () {
+                  var clientWidth = docEl.clientWidth;
+                 if (!clientWidth) return;
+                  if(clientWidth>=1920){
+                     docEl.style.fontSize = '100px';
+                 }else{
+                     docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+                }
+            };
+
+	        if (!doc.addEventListener) return;
+	         win.addEventListener(resizeEvt, recalc, false);
+	        doc.addEventListener('DOMContentLoaded', recalc, false);
+	    	})(document, window);
+		</script>
+		<style type="text/css">
+			/*自适应修改样式*/
+			html,body{
+				background-color: #3F4A5E;
+				width: 100%;
+				height: 100%;
+			}
+			.color_w{
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			.main_left{
+				margin-left: 1%;
+				width: 25%;
+				height: 100%;
+			}
+			.main_center{
+				margin: 0 1.5%;
+				text-align: center;
+				width: 45%;
+				height: 100%;
+			}
+			.main_right{
+				margin-right: 1%;
+				width: 25%;
+				height: 100%;
+			}
+			#wrong-message{
+				
+			}
+			#map{
+				width: 100%;
+				height:60%;
+				background-color: #3F4A5E !important;
+			}
+			#statistical_right{
+				
+			}
+			#statistical_rightBottom{
+				text-align: center;
+			}
+			#mainLeftCenter{
+				
+			}
+			#mainCenterBottom{
+				width: 100%;
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			.leftBottomBoder{
+				
+			}
+			.leftBottomBoder li{
+				/*width: 30%;*/
+				list-style: none;
+				float: left;
+				margin-right: 0.05rem;
+				background-color: #456FA3;
+				cursor: pointer;
+				color: #fff;
+			}
+			#mainLeftBottom{
+				text-align: center;
+			}
+			.li_div{
+				padding: 0.05rem;
+				 display: flex;
+    			align-items: center;
+    			text-align: center;
+    			font-size: 0.12rem;
+			}
+			.li_active{
+				background-color: #80B2ED !important;
+				color: #3D5C9C !important;
+			}
+			.li_span{
+				border-radius: 50%;
+				background-color: red;
+				display: flex;
+    			align-items: center;
+    			padding: 0.02rem;
+    			color: #fff;
+    			margin-left: 0.02rem;
+			}
+			ul{
+				padding: 0;
+			}
+			.statisticalBottomBoder{
+				background-color: #266AAB;
+				color: #fff;
+				font-size: 0.2rem;
+			}
+			.span_title{
+				font-size: 0.22rem;
+				margin-left: 0.1rem;
+				color: #fff;
+			}
+			.div_title{
+				height: 15%;
+				font-weight: bold;
+			}
+			.span_img{
+				width: 0.4rem;
+				cursor: pointer;
+				color: #fff;
+			}
+			.span_select{
+				margin-right: 0.1rem;
+			}
+			.left_big{
+				background-color: #2C4166 !important;
+				padding-top: 0.1rem;
+				margin-top: 2%;
+				height: 32%;
+				border-top: 1px solid #32BDFE;
+			}
+			
+			@media screen and (max-width: 800px) {
+					.main_left{
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						position: absolute;
+						top:95%;
+					}
+					.main_center{
+						position: absolute;
+						top:7%;
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						margin-top: -7%;
+					}
+					.main_right{
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						margin-top: -10%;
+						position: absolute;
+						top:195%;
+					}
+					.left_big{
+						background-color: #2C4166 !important;
+						padding-top: 0.1rem;
+						margin-top: 2%;
+						height: 30%;
+						border-top: 1px solid #32BDFE;
+					}
+					.map_select{
+						height: 0 !important;
+					}
+					.span_img{
+						width: 1.4rem;
+					}
+					#statistical_rightBottom li{
+						list-style: none;
+					}
+					#mainLeftBottom li{
+						list-style: none;
+					}
+				}
+		</style>
+	</head>
+	<body>
+			<!--左侧布局开始-->
+			<div class="main_left pull-left">
+				<!--左侧上方大盒子-->
+				<div class="left_big">
+				<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">检测机构统计</span>
+						<span class="pull-right span_img glyphicon glyphicon-option-horizontal" ></span>
+						<div class="clearfix"></div>
+					</div>
+					<!--饼状图左侧开始-->
+					<div id="wrong-message" class="color_w">
+					</div>
+				</div>
+				<!--左侧第二个大盒子-->
+				<div class="left_big">
+					<!--上侧标题开始-->
+					<div class="div_title"> 
+						<span class="pull-left span_title">材料检测概况</span>
+						<span class="pull-right span_select"><input id="inputSix"/>
+						<input id="inputSeven"/></span>
+						<div class="clearfix"></div>
+						<!--选项框按钮开始-->
+						<div class="leftBottomBoder" style="margin-top: 0.1rem;">
+							<ul style="margin: 0;padding-left: 1.5rem;">
+								<li class="li_active">
+									<div class="li_div">
+										<span>混泥土</span>
+									</div>
+								</li>
+								<li>
+									<div class="li_div" style="padding: 0.05rem 0.1rem;">
+										<span>钢筋</span>
+									</div>
+								</li>
+								<li>
+									<div class="li_div" style="padding: 0.05rem 0.1rem;">
+										<span>......</span>
+									</div>
+								</li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<!--左侧中间统计图开始-->
+					<div id="mainLeftCenter" class="color_w">
+					</div>
+				</div>
+				<!--左侧下方列表开始-->
+				<div class="left_big">
+				<div id="mainLeftBottom">
+					<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">预警信息</span>
+						<span class="pull-right span_img glyphicon glyphicon-option-horizontal" ></span>
+						<div class="clearfix"></div>
+					</div>
+					<!--布置三个按钮框-->
+					<div class="leftBottomBoder">
+						<ul style="margin: 0;padding-left: 0.4rem;">
+							<li class="li_active">
+								<div class="li_div">
+									<span>超期末整改</span><span class="li_span">155</span>
+								</div>
+							</li>
+							<li>
+								<div class="li_div" style="padding: 0.05rem 0.1rem;">
+									<span>见证异常</span><span class="li_span">155</span>
+								</div>
+							</li>
+							<li>
+								<div class="li_div">
+									<span>报告不合格</span><span class="li_span">155</span>
+								</div>
+							</li>
+							<div class="clearfix"></div>
+						</ul>
+						
+					</div>
+					<!--布置下方内容-->
+					<div class="engineering" style="margin-top: 0.1rem; font-size: 0.2rem;">
+						<ul style="margin: 0;padding-left: 0.6rem;">
+							<li style="color: #fff;"><span class="pull-left">xxxxxxx工程</span><span class="pull-right" style="margin-right: 1rem;">19</span></li>
+						</ul>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!--中间部分开始-->
+			<div class='main_center pull-left'>
+				<!--地图上方下拉框 style="margin-top: 20px;"--> 
+				<div class="map_select" style="height: 6%; margin-top: 1%;">
+					<input id="inputOne" />
+					<span style="margin: 0 0.15rem;"><input id="inputTwo"  /></span>
+					<input id="inputThree" />
+				</div>
+				<!--地图开始-->
+				<div id='map'>
+					
+				</div>
+				<!--中间下方大盒子 style="margin-top: 105px;"-->
+				<div class="left_big" style="height: 32%; margin-top: 0.02rem;">
+					<!--上侧标题开始 margin-top: 10px;-->
+					<div class="div_title" style="">
+						<span class="pull-left span_title">工程质量指数走势</span>
+						<span class="pull-right span_select">
+							<input id="input12"/>
+						</span>
+						<div class="clearfix"></div>
+					</div>
+					<!--中间下方统计表开始-->
+					<div id='mainCenterBottom'>
+						
+					</div>
+				</div>
+			</div>	
+			<!--右侧布局开始-->
+			<div class="main_right pull-right">
+				<!--右侧第一个大盒子-->
+				<div class="left_big">
+					<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">质量监督整改情况</span>
+						<span class="pull-right span_select"><input id="inputFour"/>
+						<input id="inputFive"/></span>
+						<div class="clearfix"></div>
+					</div>
+					
+				<!--第一层统计图开始-->
+					<div id='statistical_right' class="color_w">
+						
+					</div>
+				</div>
+				<!--右侧第二个大盒子-->
+				<div class="left_big">
+					<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">在建工程不合格率概况</span>
+						<span class="pull-right span_select"><input id="inputEight"  />
+						<input id="inputNine" /></span>
+						<div class="clearfix"></div>
+					</div>
+					<!--第二层圆环统计图开始-->
+					<div id='statistical_rightCenter' class="color_w">
+						
+					</div>
+				</div>	
+				<!--第三层列表开始-->
+				<div class="left_big">
+				<div id='statistical_rightBottom' class="color_w">
+					<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">检测机构信用排名</span>
+						<span class="pull-right span_select"><input id="inputTen" />
+						<input id="input11" /></span>
+						
+					</div>
+					<div class="clearfix"></div>
+					<!--布置上方列表框-->
+					<div class="statisticalBottomBoder">
+						<span class="pull-left" style="margin-left: 0.25rem;">机构名称</span><span class="pull-right" style="margin-right: 0.15rem;">排名</span><span class="pull-right" style="margin-right: 0.3rem;">今日得分</span>
+						<div class="clearfix"></div>
+					</div>
+					
+					<!--布置下方内容-->
+					<div style="margin-top: 0.1rem; font-size: 0.2rem;">
+						<ul style="margin: 0;padding-left: 0.4rem;">
+							<li style="color: #fff;"><span class="pull-left">xxxxxxx工程</span><span class="pull-right" style="margin-right: 0.15rem;">1</span><span class="pull-right" style="margin-right: 0.5rem;">96.5</span></li>
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+				</div>
+				</div>
+			</div>
+	</body>
+</html>

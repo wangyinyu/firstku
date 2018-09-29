@@ -1,0 +1,289 @@
+p{
+				margin: 0.1rem 0;
+			}
+			
+			/*中间最外层盒子*/
+			.big_center{
+				width: 100%;
+				height: 93%;
+			}
+			.color_w{
+				height: 75%;
+				background-color: #2C4166 !important;
+			}
+			.main_left{
+				/*margin-left: 1%;*/
+				width: 31%;
+				height: 100%;
+			}
+			.main_center{
+				margin: 0 1.5%;
+				text-align: center;
+				width: 34%;
+				height: 100%;
+			}
+			.main_right{
+				margin-right: 1%;
+				width: 31%;
+				height: 100%;
+			}
+			#map{
+				width: 100%;
+				height:49%;
+/*				padding-top: 1.5%;*/
+				background-color: #3F4A5E !important;
+			}
+			#statistical_rightBottom{
+				text-align: center;
+			}
+			.mainCenterBottomLeft{
+				border-top: 0.01rem solid #32BDFE;
+				padding-top: 0.1rem;
+				float: left;
+				width: 49%;
+				height: 100%;
+				background-color: #2C4166 !important;
+			}
+			.mainCenterBottomRight{
+				border-top: 0.01rem solid #32BDFE;
+				padding-top: 0.1rem;
+				float: right;
+				width: 49%;
+				height: 100%;
+				background-color: #2C4166 !important;
+			}
+			#mainCenterBottom{
+				width: 100%;
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			/*塔吊大盒子设置*/
+			.taji_big{
+				width: 96%;
+				height: 70%;
+				position: relative;
+				margin-top: 20%;
+				margin-left: 4%;
+				background: url(../img/td.png) no-repeat;
+				background-size: 95% 100%;
+			}
+			/*左侧塔吊定位的两个盒子属性*/
+			.taji_top{
+				position: absolute;
+				top: -8%;
+				right: 10%;
+				font-size: 0.12rem;
+				color: #fff;
+			}
+			.taji_bottom{
+				position: absolute;
+				bottom: 0;
+				right: 10%;
+				font-size: 0.12rem;
+				color: #fff;
+			}
+			/*塔机实时吊重统计图样式设置*/
+			#material{
+				width: 100%;
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			#taji{
+				width: 100%;
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			/*3d柱状图盒子设置*/
+			#taji_two{
+				width: 98%;
+				height: 95%;
+				margin: 3% auto 0 auto;
+				/*width: 500px;*/
+				/*height: 280px;*/
+				background-color: #2C4166 !important;
+			}
+			#mainCenterBottom1{
+				
+				width: 100%;
+				height: 88%;
+				background-color: #2C4166 !important;
+			}
+			.leftBottomBoder{
+				width: 100%;
+				margin: 2% auto;
+			}
+			#mainLeftBottom{
+				text-align: center;
+			}
+			.statisticalBottomBoder{
+				margin: 0 2%;
+				background-color: #266AAB;
+				color: #fff;
+				font-size: 0.2rem;
+				border: 0.01rem solid #58B1D1;
+			}
+			.div_title{
+				height: 10%;
+				font-weight: bold;
+				width: 100%;
+				text-align: center;
+			}
+			.span_title{
+				font-size: 0.26rem;
+				color: #fff;
+			}
+			.left_big{
+				background-color: #2C4166 !important;
+				padding-top: 0.1rem;
+				margin-top: 2%;
+				height: 20%;
+				border-top: 0.01rem solid #32BDFE;
+			}
+			/*现场页面样式设置*/
+			.font_style{
+				padding-top: 8%;
+				margin-left:8%;
+			}	
+			.rectification{
+				color: #60D9E1;
+				margin-right: 0.1rem;
+				font-size: 0.14rem;
+			}
+			.font_color{
+				color: #E7F108;
+				margin-right: 0.4rem;
+				font-size: 0.22rem;
+			}
+			.statistical_rightCenter{
+				width: 98%; 
+				margin: 0 1%; 
+				color: #FBFE23;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			/*塔机今日数据样式设置*/
+			.progress_time{
+				width: 100%;
+				text-align: center;
+			}
+			#ec4{
+					width: 100%;
+					height: 80%;
+				}
+			#ec_ban{
+				width: 60%;
+				height: 100%;
+			}
+			
+			@media screen and (max-width: 320px) {
+				.leftBottomBoder ul{
+					width: 100% !important;
+				}
+				.ul_yang{
+					margin: 0 !important;
+				}
+				.leftBottomBoder .li_width{
+					width: auto !important;
+				}
+			}
+			@media screen and (max-width: 767px) {
+				.head_right span{
+						width: 8%;
+						font-size: 0.24rem;
+					}
+				li{
+					list-style: none;
+				}
+				.start_endTime{
+					width: 70%;
+				}
+				.span_yuan{
+						width: 1.5rem;
+						height: 1.5rem;
+					}
+				.kai_zuo{
+					line-height: 1.5rem;
+				}
+				.head_left{
+					font-size: 0.8rem;
+				}
+				.head_right{
+					padding-right: 0.6rem;
+				}
+			}
+			@media screen and (min-width: 760px) {
+				/*.main_right{
+						top:208% !important;
+					}*/
+				.span_position{
+						width: 0.4rem !important;
+					}
+					
+			}
+			@media screen and (min-width: 1367px) {
+				.li_width{
+					width: 24% !important;
+				}
+			}
+			@media screen and (max-width: 1023px) {
+					.li_width{
+						width: 24% !important;
+					}
+					#map{
+						height: 68%;
+					}
+					.span_position{
+						width: 1rem;
+					}
+					.main_left{
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						/*position: absolute;*/
+						/*top:110%;*/
+					}
+					.main_center{
+						/*position: absolute;*/
+						/*top:7%;*/
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						/*margin-top: -7%;*/
+					}
+					.main_right{
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						margin-top: -2%;
+						/*position: absolute;
+						top:238%;*/
+					}
+					.left_big{
+						background-color: #2C4166 !important;
+						padding-top: 0.1rem;
+						margin-top: 2%;
+						height: 30%;
+						border-top: 1px solid #32BDFE;
+					}
+					.mainCenterBottomLeft{
+						width: 100%;
+						margin-bottom: 2%;
+					}
+					.mainCenterBottomRight{
+						width: 100%;
+					}
+					.paimin{
+						margin-right: 1rem !important;
+					}
+				}
+			@media screen and (min-width: 4000px) {
+				
+					.progress{
+						border-radius: 0.04rem;
+					}
+					
+				}
+			@media screen and (min-width: 7000px) {
+					
+				}

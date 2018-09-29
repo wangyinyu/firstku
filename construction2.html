@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap-theme.css" />
+		<link href="js/jquery-easyui-1.4.3/themes/default/easyui.css" rel="stylesheet" />
+    	<link href="js/jquery-easyui-1.4.3/themes/icon.css" rel="stylesheet" />
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-easyui-1.4.3/jquery.easyui.min.js" type="text/javascript"></script>
+    	<script src="js/jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    	<script src="js/echarts.min.js"></script>
+    	<script src="js/common.js"></script>
+    	<script type="text/javascript" src="js/chengdu.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/construction2.js" ></script>
+		<style type="text/css">
+			/*自适应修改样式*/
+			html,body{
+				background-color: #3F4A5E;
+				width: 100%;
+				height: 100%;
+			}
+			.color_w{
+				height: 75%;
+				background-color: #2C4166 !important;
+			}
+			.main_left{
+				margin-left: 1%;
+				width: 28%;
+				height: 100%;
+			}
+			.main_center{
+				margin: 0 1.5%;
+				text-align: center;
+				width: 39%;
+				height: 100%;
+			}
+			.main_right{
+				margin-right: 1%;
+				width: 28%;
+				height: 100%;
+			}
+			#wrong-message{
+				
+			}
+			#map{
+				width: 100%;
+				height:90%;
+				padding-top: 11%;
+				background-color: #3F4A5E !important;
+			}
+			#statistical_right{
+				
+			}
+			#statistical_rightBottom{
+				text-align: center;
+			}
+			#mainLeftCenter{
+				
+			}
+			.mainCenterBottomLeft{
+				border-top: 1px solid #32BDFE;
+				padding-top: 0.1rem;
+				float: left;
+				width: 49%;
+				height: 100%;
+				background-color: #2C4166 !important;
+			}
+			.mainCenterBottomRight{
+				border-top: 1px solid #32BDFE;
+				padding-top: 0.1rem;
+				float: right;
+				width: 49%;
+				height: 100%;
+				background-color: #2C4166 !important;
+			}
+			#mainCenterBottom{
+				width: 100%;
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			#mainCenterBottom1{
+				
+				width: 100%;
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			.leftBottomBoder{
+				width: 100%;
+				margin: 2% auto;
+			}
+			.qizhong li{
+				width: 40%;
+			}
+			.leftBottomBoder li{
+				list-style: none;
+				float: left;
+				margin-right: 0.05rem;
+				background-color: #456FA3;
+				cursor: pointer;
+				color: #fff;
+			}
+			.main_left .leftBottomBoder .ul_li li{
+				width: 31%;
+			}
+			#mainLeftBottom{
+				text-align: center;
+			}
+			.li_div{
+				width: 100%;
+				padding: 0.05rem;
+				 /*display: flex;
+    			align-items: center;*/
+    			text-align: center !important;
+    			font-size: 0.12rem;
+			}
+			.li_active{
+				background-color: #80B2ED !important;
+				color: #3D5C9C !important;
+			}
+			.li_span{
+				border-radius: 50%;
+				background-color: red;
+				/*display: flex;
+    			align-items: center;*/
+    			padding: 0.02rem;
+    			color: #fff;
+    			/*margin-left: 0.1rem;*/
+			}
+			ul{
+				padding: 0;
+			}
+			.statisticalBottomBoder{
+				margin: 0 2%;
+				background-color: #266AAB;
+				color: #fff;
+				font-size: 0.2rem;
+				border: 1px solid #58B1D1;
+			}
+			.span_title{
+				font-size: 0.2rem;
+				margin-left: 0.1rem;
+				color: #fff;
+			}
+			.div_title{
+				height: 9%;
+				font-weight: bold;
+			}
+			.span_img{
+				width: 0.4rem;
+				cursor: pointer;
+				color: #fff;
+			}
+			.span_select{
+				margin-right: 0.1rem;
+			}
+			.left_big{
+				background-color: #2C4166 !important;
+				padding-top: 0.1rem;
+				margin-top: 2%;
+				height: 20%;
+				border-top: 0.01rem solid #32BDFE;
+			}
+			.see{
+					border: 1px solid #93BCDE;
+					border-radius: 12%;
+					color: #8AB2D5;
+					font-size: 0.12rem;
+					padding:0 0.1rem;
+					margin-right: 0.2rem;
+				}
+			/*现场页面样式设置*/
+			.font_style{
+				padding-top: 10%;
+			}	
+			.rectification{
+				color: #60D9E1;
+				margin-right: 0.1rem;
+				font-size: 0.14rem;
+			}
+			.font_color{
+				color: #E7F108;
+				margin-right: 0.4rem;
+				font-size: 0.22rem;
+			}
+			.yellow_line{
+				height: 1px;
+				width: 37%;
+				background-color: #818E4A;
+				display: block;
+			}
+			.statistical_rightCenter{
+				width: 98%; 
+				margin: 0 1%; 
+				color: #FBFE23;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.li_width{
+				/*width: 24% !important;*/
+			}
+			.div_button{
+				width: 100%;
+				height: 10%;
+				text-align: center;
+			}
+			.div_image{
+				width: 60%;
+				height: 89%;
+				background: url(img/plane.png) no-repeat;
+				background-size: 100% 100%;
+				margin: 0 auto;
+				position: relative;
+			}
+			.progress_time{
+				width: 100%;
+				text-align: center;
+			}
+			.start_endTime{
+				width: 60%;
+				margin: 0 auto;
+				color: #60D9E1;
+				font-size: 0.12rem;
+			}
+			/*进度条样式设置*/
+			.jindu{
+				width: 60%;
+				height: 14px;
+				margin: 0 auto;
+			}
+			/*图片定位*/
+			.span_position{
+				cursor: pointer;
+				position: absolute;
+				width: 0.4rem;
+			}
+			.ta_img{
+				width: 100%;
+			}
+			/*按钮宽度设置*/
+			.yang{
+				width: 19%;
+				font-size: 0.2rem;
+			}
+			
+			#ec4{
+					width: 100%;
+					height: 80%;
+				}
+				.leftBottomBoder th{
+					background-color: #7DC7C8;
+					text-align: center;
+					font-size: 0.12rem;
+				}
+				
+				.leftBottomBoder tr:nth-child(even) td{
+					background: #476299;
+					font-size: 0.12rem;
+				}
+				.leftBottomBoder tr:nth-child(odd) td{
+					background: #708ECC;
+					font-size: 0.12rem;
+				}
+			@media screen and (max-width: 320px) {
+				.leftBottomBoder ul{
+					width: 100% !important;
+				}
+				.ul_yang{
+					margin: 0 !important;
+				}
+				.leftBottomBoder .li_width{
+					width: auto !important;
+				}
+			}
+			@media screen and (max-width: 767px) {
+				.div_button{
+						margin-top: -9%;
+					}
+				.main_right{
+					top:205% !important;
+				}
+				li{
+					list-style: none;
+				}
+				
+			}
+			@media screen and (min-width: 760px) {
+				.main_right{
+						top:208% !important;
+					}
+				.span_position{
+						width: 0.4rem !important;
+					}	
+			}
+			@media screen and (min-width: 1367px) {
+				.li_width{
+					width: 24% !important;
+				}
+			}
+			@media screen and (max-width: 1023px) {
+					.li_width{
+						width: 24% !important;
+					}
+					#map{
+						height: 68%;
+					}
+					.span_position{
+						width: 1rem;
+					}
+					.main_left{
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						position: absolute;
+						top:100%;
+					}
+					.main_center{
+						position: absolute;
+						/*top:7%;*/
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						/*margin-top: -7%;*/
+					}
+					.main_right{
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						margin-top: -10%;
+						position: absolute;
+						top:238%;
+					}
+					.left_big{
+						background-color: #2C4166 !important;
+						padding-top: 0.1rem;
+						margin-top: 2%;
+						height: 30%;
+						border-top: 1px solid #32BDFE;
+					}
+					.map_select{
+						height: 7% !important;
+					}
+					.span_img{
+						width: 1.4rem;
+					}
+					#statistical_rightBottom li{
+						list-style: none;
+					}
+					#mainLeftBottom li{
+						list-style: none;
+					}
+					.mainCenterBottomLeft{
+						width: 100%;
+						margin-bottom: 2%;
+					}
+					.mainCenterBottomRight{
+						width: 100%;
+					}
+					.paimin{
+						margin-right: 1rem !important;
+					}
+					.div_button button{
+						width: 80%;
+						margin-bottom: 10px;
+					}
+					/*.div_button{
+						margin-top: -9%;
+					}*/
+				}
+				@media screen and (min-width: 4000px) {
+					.btn{
+						border: 0.01rem;
+						border-radius:0.04rem ;
+					}
+					.progress{
+						border-radius: 0.04rem;
+					}
+					.jindu{
+						height: 0.14rem;
+					}
+				}
+				@media screen and (min-width: 7000px) {
+					.div_button{
+						margin-left: -5%;
+						width: 109%;
+					}
+				}
+		</style>
+	</head>
+	<body>
+			<!--左侧布局开始-->
+			<div class="main_left pull-left">
+				<!--左侧上方大盒子-->
+				<div class="left_big" style="height: 30%;">
+					<!--上侧标题开始-->
+					<div class="div_title"> 
+						<span class="pull-left span_title">工程概况</span>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<!--左侧第二个大盒子-->
+				<div class="left_big" style="height: 15%;">
+				<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">项目进度</span>
+					</div>
+					<div class="clearfix"></div>
+					<!--选项框按钮开始-->
+						<div class="leftBottomBoder">
+							<div class="progress_time"><span class="rectification">剩余</span><span class="font_color" style="margin-right: 0.1rem;">485</span><span class="rectification">天</span></div>
+							<div class="jindu progress progress-striped">
+							    <div class="progress-bar progress-bar-warning" role="progressbar"
+							         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+							         style="width: 70%;">
+							        <span class="sr-only"></span>
+							    </div>
+							</div>
+						</div>
+					<!--饼状图左侧开始-->
+					<div class="start_endTime">
+						<span class="pull-left">2017-09-15</span>
+						<span class="pull-right">2019-09-15</span>
+					</div>
+				</div>
+				<!--考勤情况开始-->
+				<div class="left_big" style="height: 35%;">
+					<div id="mainLeftBottom" style="height: 100%;width: 100%;">
+						<!--第三层考勤情况开始-->
+						<div class="div_title">
+							<span class="pull-left span_title">考勤情况</span>
+							<div class="clearfix"></div>
+						</div>
+						<!--列表开始-->
+						<div class="leftBottomBoder" style="text-align: center;width: 98%;margin: 0 auto;color: #fff; height: 90%;">
+							<table style="width: 100%;font-size: 0.12rem; border-collapse: separate; border-spacing: 0.08rem; height: 100%;" >
+								<tr>
+									<th></th>
+									<th>2018-08-05</th>
+									<th>2018-08-05</th>
+									<th>2018-08-05</th>
+								</tr>
+								<tr>
+									<td>项目经理 张良仓</td>
+									<td>缺勤</td>
+									<td>缺勤</td>
+									<td>缺勤</td>
+								</tr>
+								<tr>
+									<td>技术负责人</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>总监理工程师</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>监理工程师</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>质量员</td>
+									<td>0/1</td>
+									<td>0/1</td>
+									<td>0/1</td>
+								</tr>
+								<tr>
+									<td>安全员</td>
+									<td>0/3</td>
+									<td>0/3</td>
+									<td>0/3</td>
+								</tr>
+								<tr>
+									<td>劳务人员</td>
+									<td>0/356</td>
+									<td>0/356</td>
+									<td>0/356</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="left_big" style="height: 15%;">
+					<div id="mainLeftBottom" style="height: 100%;width: 100%;margin: 0;">
+						<!--上侧标题开始-->
+						<div class="div_title">
+							<span class="pull-left span_title">设备在线</span>
+							<div class="clearfix"></div>
+						</div>
+						<div class="leftBottomBoder" style="text-align: center;margin: 0;">
+							<p class="font_style" style="padding-top:5% ;"><span class="rectification">塔吊</span><span class="font_color">2/2</span><span class="rectification">考勤</span><span class="font_color">4/2</span></p>
+							<p class="font_style" style="padding: 0;"><span class="rectification">视频</span><span class="font_color">3/1</span><span class="rectification">扬尘</span><span class="font_color">1/1</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--中间部分开始-->
+			<div class='main_center pull-left'>
+				
+				<!--地图开始-->
+				<div id='map'>
+					<div class="div_image">
+						<span class="span_position" style="top:45%"><img class="ta_img" src="img/video2.png"/></span>
+						<span class="span_position" style="top:20%;left: 30%;"><img class="ta_img" src="img/tadiao.png"/></span>
+						<span class="span_position" style="top:30%;left: 20%;"><img class="ta_img" src="img/video2.png"/></span>
+						<span class="span_position" style="top:30%;right: 40%;"><img class="ta_img" src="img/tadiao.png"/></span>
+						<span class="span_position" style="top:35%; right: 50%;"><img class="ta_img" src="img/video2.png"/></span>
+						<span class="span_position" style="top:20%;"><img class="ta_img" src="img/tadiao.png"/></span>
+						<span class="span_position" style="top:80%; right: 30%;"><img class="ta_img" src="img/video2.png"/></span>
+						<span class="span_position" style="top:80%; left: 40%;"><img class="ta_img" src="img/tadiao.png"/></span>
+					</div>
+				</div>
+				<div class="div_button">
+					<button type="button" class="yang btn btn-info">塔吊监控</button>
+					<button type="button" class="yang btn btn-info">扬尘在线监控</button>
+					<button type="button" class="yang btn btn-info">人员管理</button>
+					<button type="button" class="yang btn btn-info">升降机监控</button>
+					<button type="button" class="yang btn btn-info">视频监控</button>
+				</div>
+			</div>	
+			<!--右侧布局开始-->
+			<div class="main_right pull-right">
+				<!--右侧第一个大盒子-->
+				<div class="left_big">
+					<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">质量问题</span>
+						<div class="clearfix"></div>
+					</div>
+				<!--第一层统计图开始-->
+					<div id='statistical_right' class="color_w" style="height: 76%;text-align: center;">
+						<p class="font_style"><span class="rectification">未整改</span><span class="font_color">31</span><span class="rectification">已整改</span><span class="font_color">21</span></p>
+					</div>
+				</div>
+				<!--右侧第二个大盒子-->
+					<div class="left_big">
+				<div id='statistical_rightBottom' class="color_w">
+					<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">安全问题</span>
+					</div>
+					<div class="clearfix"></div>
+					<!--选项框按钮开始-->
+						<div class="leftBottomBoder" style="text-align: center;">
+							<p class="font_style"><span class="rectification">未整改</span><span class="font_color">31</span><span class="rectification">已整改</span><span class="font_color">21</span></p>
+						</div>
+				</div>
+				</div>
+				<!--第三层列表开始-->
+				
+				<div class="left_big" style="height: 56%;">
+					<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">预警信息</span>
+					</div>
+					<div class="clearfix"></div>
+					<!--第一个预警盒子开始-->
+					<div class='statistical_rightCenter'>
+						<span class="yellow_line pull-left"></span>
+						<span class="pull-left" style="font-size: 0.14rem;margin: 0 3%;">质量预警</span>
+						<span class="yellow_line pull-left"></span>
+					</div>
+					<div class="clearfix"></div>
+					<div class="leftBottomBoder qizhong">
+						<ul style="padding-left: 15%;">
+							<li class="li_active">
+								<div class="li_div">
+									<span>起重机械</span><span class="li_span">123</span>
+								</div>
+							</li>
+							<li>
+								<div class="li_div" style="padding: 0.05rem 0.1rem;">
+									<span>超期末整改</span><span class="li_span">999</span>
+								</div>
+							</li>
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+					<div class="engineering" style="margin-top: 0.1rem; font-size: 0.2rem;height: 30%;">
+						<ul style="margin: 0;padding-left: 0.6rem;">
+							<li style="color: #fff;"><span class="pull-left">xxxxxxx工程</span><span class="pull-right" style="margin-right: 0.5rem;">19</span></li>
+						</ul>
+					</div>
+					<!--下方预警内容开始-->
+					<div class='statistical_rightCenter'>
+						<span class="yellow_line pull-left"></span>
+						<span class="pull-left" style="font-size: 0.14rem; margin: 0 3%;">安全预警</span>
+						<span class="yellow_line pull-left"></span>
+						<div class="clearfix"></div>
+					</div>
+					
+					<div class="leftBottomBoder">
+						<ul class="ul_yang" style=" width: 94%;margin:0 3%;">
+							<li class="li_active li_width" style="">
+								<div class="li_div">
+									<span class="pull-left">超期末整改</span><span class="li_span pull-right">123</span>
+								</div>
+							</li>
+							<li class="li_width">
+								<div class="li_div" style="padding: 0.05rem 0.1rem;">
+									<span class="pull-left">起重机械</span><span class="li_span pull-right">999</span>
+								</div>
+							</li>
+							<li class="li_width">
+								<div class="li_div" style="padding: 0.05rem 0.1rem;">
+									<span class="pull-left">扬尘监控</span><span class="li_span pull-right">155</span>
+								</div>
+							</li>
+							<li class="li_width" style="margin: 0;">
+								<div class="li_div" style="padding: 0.05rem 0.1rem;">
+									<span class="pull-left">违法行为</span><span class="li_span pull-right">155</span>
+								</div>
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="engineering" style="margin-top: 0.1rem; font-size: 0.2rem;height: 30%;">
+						<ul style="margin: 0;padding-left: 0.6rem;">
+							<li style="color: #fff;"><span class="pull-left">xxxxxxx工程</span><span class="pull-right" style="margin-right: 0.5rem;">19</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.1.0.js"></script>
+	</head>
+	 <body>
+	    <div id="loading"></div>
+	    <div id="content"></div>
+	    <script>
+	    	$.ajax({
+	    		type:"get",
+	    		url:"index.html",
+	    		async:true,
+	    		success:function(data){
+	    			var content = document.getElementById('content')
+	    			content.innerHTML = data
+	    		}
+	    	});
+	    </script>
+	  </body>
+</html>

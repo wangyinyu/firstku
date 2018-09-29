@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap-theme.css" />
+		<link href="js/jquery-easyui-1.4.3/themes/default/easyui.css" rel="stylesheet" />
+    	<link href="js/jquery-easyui-1.4.3/themes/icon.css" rel="stylesheet" />
+    	<link href="css/common.css" rel="stylesheet"/>
+    	<link href="css/construction3.css" rel="stylesheet"/>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-easyui-1.4.3/jquery.easyui.min.js" type="text/javascript"></script>
+    	<script src="js/jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    	<script src="js/echarts.min.js"></script>
+    	<script src="js/common.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/construction3.js" ></script>
+		<!--引用highcharts-->
+		<script type="text/javascript" src="js/justgage.1.0.1.min.js"></script>
+		<script type="text/javascript" src="js/raphael.2.1.0.min.js"></script>
+	</head>
+	<body>
+			<!--左侧布局开始-->
+			<div class="main_left pull-left">
+				<!--左侧上方大盒子-->
+				<div class="left_big" style="height: 30%;">
+					<!--上侧标题开始-->
+					<div class="div_title"> 
+						<span class="pull-left span_title">工程概况</span>
+					</div>
+					<div class="clearfix"></div>
+					<!--<div class="statisticalBottomBoder" style="margin-top: 1%;">
+						<span class="pull-left" style="margin-left: 0.25rem;">市政</span><span class="pull-right" style="margin-right: 0.15rem;">排名</span><span class="pull-right" style="margin-right: 0.3rem;">今日得分</span>
+						<div class="clearfix"></div>
+					</div>-->
+					<!--<div class='statistical_rightCenter'>
+						<span class="yellow_line pull-left"></span>
+						<span class="pull-left" style="font-size: 0.14rem;margin: 0 3%;">今日得分</span>
+						<span class="yellow_line pull-left"></span>
+					</div>
+					<div class="clearfix"></div>-->
+					<!--布置下方内容-->
+					<div style="margin-top: 0.1rem; font-size: 0.12rem;height: 40%;">
+						<ul style="margin: 0;padding-left: 0.4rem;">
+							<li style="color: #fff;font-size: 0.14rem;"><span class="pull-left">xxxx建设集团有限公司</span><span class="pull-right paimin" style="margin-right: 0.4rem;">↑</span><span class="pull-right" style="margin-right: 0.1rem;">86.5</span></li>
+							<div class="clearfix"></div>
+							<li style="color: #fff;font-size: 0.14rem;"><span class="pull-left">xxxx施工有限公司</span><span class="pull-right paimin" style="margin-right: 0.4rem;color: red;">↓</span><span class="pull-right" style="margin-right: 0.1rem;">90.2</span></li>
+							<div class="clearfix"></div>
+							<li style="color: #fff;font-size: 0.14rem;"><span class="pull-left">xxxx监理有限公司</span><span class="pull-right paimin" style="margin-right: 0.4rem;">↑</span><span class="pull-right" style="margin-right: 0.1rem;">96.5</span></li>
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+					<!--进度条设置-->
+					<div class='statistical_rightCenter'>
+						<span class="yellow_line pull-left"></span>
+						<span class="pull-left" style="font-size: 0.14rem;margin: 0 3%;">项目进度</span>
+						<span class="yellow_line pull-left"></span>
+					</div>
+					<div class="clearfix"></div>
+					<div class="leftBottomBoder" style="margin: 0;">
+						<div class="progress_time"><span class="rectification">剩余</span><span class="font_color" style="margin-right: 0.1rem;color: #E7F108;">485</span><span class="rectification">天</span></div>
+						<div class="jindu progress progress-striped">
+						    <div class="progress-bar progress-bar-warning" role="progressbar"
+						         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+						         style="width: 70%;">
+						        <span class="sr-only"></span>
+						    </div>
+						</div>
+					</div>
+					<div class="start_endTime">
+						<span class="pull-left">2017-09-15</span>
+						<span class="pull-right">2019-09-15</span>
+					</div>
+				</div>
+				<!--左侧第二个大盒子-->
+				<!--<div class="left_big" style="height: 15%;">-->
+				<!--上侧标题开始-->
+					<!--<div class="div_title">
+						<span class="pull-left span_title">项目进度</span>
+					</div>
+					<div class="clearfix"></div>-->
+					<!--开工竣工圆圈开始-->
+					<!--<div class="start_endTime">
+						<div class="pull-left kai_zuo"><span class="span_yuan pull-left" >开工</span><span class="pull-right">2017-09-15</span></div>
+						<div class="pull-right kai_zuo"><span class="span_yuan pull-left" style="background-color: #93D3A3;">竣工</span><span class="pull-right">2019-09-15</span></div>
+						<div class="clearfix"></div>
+					</div>-->
+
+					<!--选项框按钮开始-->
+						<!--<div class="leftBottomBoder" style="margin: 0;">
+							<div class="progress_time"><span class="rectification">剩余</span><span class="font_color" style="margin-right: 0.1rem;color: #E7F108;">485</span><span class="rectification">天</span></div>
+							<div class="jindu progress progress-striped">
+							    <div class="progress-bar progress-bar-warning" role="progressbar"
+							         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+							         style="width: 70%;">
+							        <span class="sr-only"></span>
+							    </div>
+							</div>
+						</div>
+						<div class="start_endTime">
+							<span class="pull-left">2017-09-15</span>
+							<span class="pull-right">2019-09-15</span>
+						</div>-->
+				<!--</div>-->
+				<!--考勤情况开始-->
+				<div class="left_big" style="height: 20%;">
+					<div id="mainLeftBottom" style="height: 100%;width: 100%;">
+						<!--第三层考勤情况开始-->
+						<div class="div_title">
+							<span class="pull-left span_title">考勤情况</span>
+							<div class="see pull-right kao">更多</div>
+							<div class="clearfix"></div>
+						</div>
+						<!--列表开始-->
+						<div class="leftBottomBoder" style="text-align: center;width: 98%;margin: 0 auto;color: #fff; height: 90%;">
+							<div id="ec4" ></div>
+						</div>
+					</div>
+				</div>
+				<!--扬尘数据开始-->
+				<div class="left_big" style="height: 46%;">
+					<div class="div_title">
+						<span class="pull-left span_title">扬尘在线实时监控</span>
+						<div class="see pull-right yang_see">更多</div>
+						<div class="clearfix"></div>
+					</div>
+					<!--半圆统计图开始-->
+					<div class="banyuan" >
+						<div id='ec_ban' class="pull-left"></div>
+						<div class="pull-right pm_shu">
+							<p><span>PM2.5(μg/m3)</span><span class="pull-right">117.5</span></p>
+							<p><span>噪音(dB)</span><span class="pull-right">61.88</span></p>
+							<p><span>温度(℃)</span><span class="pull-right">33</span></p>
+							<p><span>湿度(％)</span><span class="pull-right">72</span></p>
+							<p><span>风速(m/s)</span><span class="pull-right">0</span></p>
+							<p><span>空气质量</span><span class="pull-right">0</span></p>
+							<p><span>风向</span><span class="pull-right">正南</span></p>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<!--<div class="country_time1" style="width: 53%; margin: 0 auto;">
+						更新时间：<span>2018-08-28 11:52:11</span>
+					</div>-->
+					<!--国控值设置开始-->
+					<div class="country_big">
+						<div class="country" style="color: #fff;">
+							<div class="pull-left country_style">
+								<p class="country_color">74</p>
+								<p class="country_time">国控值</p>
+							</div>
+							<div class="pull-right country_style">
+								<p class="country_color" style="color: red;">169.9</p>
+								<p class="country_time">小时平均值</p>
+							</div>
+							<div class="clearfix"></div>
+							<!--<div class="country_time1">
+								国控值更新时间：<span>2018-08-28 11时</span>
+							</div>-->
+						</div>
+					</div>
+				</div>
+				<!--设备在线开始-->
+				<!--<div class="left_big" style="height: 15%;">
+					<div id="mainLeftBottom" style="height: 100%;width: 100%;margin: 0;">
+						
+						<div class="div_title">
+							<span class="pull-left span_title">设备在线</span>
+							<div class="clearfix"></div>
+						</div>
+						<div class="leftBottomBoder" style="text-align: center;margin: 0;">
+							<p class="font_style" style="padding-top:5% ;"><span class="rectification">塔吊</span><span class="font_color">2/2</span><span class="rectification">考勤</span><span class="font_color">4/2</span></p>
+							<p class="font_style" style="padding: 0;"><span class="rectification">视频</span><span class="font_color">3/1</span><span class="rectification">扬尘</span><span class="font_color">1/1</span></p>
+						</div>
+					</div>
+				</div>-->
+			</div>
+			<!--中间部分开始-->
+			<div class='main_center pull-left'>
+				<!--中间圆型图片定位开始-->
+				<div id='map'>
+					<div class="div_image">
+						<span class="span_position" style="top:45%"><img class="ta_img" src="img/video2.png"/></span>
+						<span class="span_position" style="top:20%;left: 30%;"><img class="ta_img tadiao" src="img/tadiao.png"/></span>
+						<span class="span_position" style="top:30%;left: 20%;"><img class="ta_img" src="img/video2.png"/></span>
+						<span class="span_position" style="top:30%;right: 40%;"><img class="ta_img tadiao" src="img/tadiao.png"/></span>
+						<span class="span_position" style="top:35%; right: 50%;"><img class="ta_img" src="img/video2.png"/></span>
+						<span class="span_position" style="top:20%;"><img class="ta_img tadiao" src="img/tadiao.png"/></span>
+						<span class="span_position" style="top:80%; right: 30%;"><img class="ta_img" src="img/video2.png"/></span>
+						<span class="span_position" style="top:80%; left: 40%;"><img class="ta_img tadiao" src="img/tadiao.png"/></span>
+					</div>
+				</div>
+				<div class="div_button">
+					<button type="button" class="yang btn btn-info">塔吊监控</button>
+					<button type="button" class="yang btn btn-info">扬尘在线监控</button>
+					<button type="button" class="yang btn btn-info">人员管理</button>
+					<button type="button" class="yang btn btn-info">升降机监控</button>
+					<button type="button" class="yang btn btn-info">视频监控</button>
+				</div>
+				<div class="left_big center_shebei" style="height: 10%;">
+					<div id="mainLeftBottom" style="height: 100%;width: 100%;margin: 0;">
+						<!--上侧标题开始-->
+						<!--<div class="div_title">
+							<span class="pull-left span_title">设备在线</span>
+							<div class="clearfix"></div>
+						</div>-->
+						<div class="leftBottomBoder" style="text-align: center;margin: 0;">
+							<!--<p class="font_style" style="padding-top:5% ;"></p>-->
+							<p class="font_style" style="padding-top: 2.5%;"><span class="pull-left span_title">设备在线</span><span class="rectification">塔吊</span><span class="font_color">2/2</span><span class="rectification">考勤</span><span class="font_color">4/2</span><span class="rectification">视频</span><span class="font_color">3/1</span><span class="rectification">扬尘</span><span class="font_color">1/1</span></p>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<!--右侧布局开始-->
+			<div class="main_right pull-right">
+				<!--右侧第一个大盒子-->
+				<div style="height: 12%;">
+					<!--左边质量问题内容-->
+					<div class="left_big pull-left" style="height: 100%;width: 49%;">
+						<div id='statistical_rightBottom' class="color_w">
+							<div class="div_title">
+								<span class="pull-left span_title">质量问题</span>
+							</div>
+							<div class="clearfix"></div>
+							<div class="" style="text-align: center;">
+								<p class="font_style"><span class="rectification">监督整改</span><span class="font_color">31</span></p>
+							</div>
+						</div>
+					</div>
+					<!--右边安全问题内容-->
+					<div class="left_big pull-right" style="height: 100%;width: 49%;">
+						<div id='statistical_rightBottom' class="color_w">
+							<div class="div_title">
+								<span class="pull-left span_title">安全问题</span>
+							</div>
+							<div class="clearfix"></div>
+							<div style="width:100%;text-align: center;">
+								<p class="font_style"><span class="rectification">监督整改</span><span class="font_color">31</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<!--右侧第二个大盒子-->
+				<div class="left_big" style="height: 28%;">
+					<div id='statistical_rightBottom' class="color_w" style="height: 100%;">
+						<div class="div_title">
+							<span class="pull-left span_title">塔吊在线实时监控</span>
+							<div class="clearfix"></div>
+						</div>
+						<!--统计表开始-->
+						<div id='mainCenterBottom'>
+						
+						</div>
+					</div>
+				</div>
+				<!--<div class="left_big">
+					<div id='statistical_rightBottom' class="color_w">
+					
+						<div class="div_title">
+							<span class="pull-left span_title">安全问题</span>
+						</div>
+						<div class="clearfix"></div>
+						
+						<div class="leftBottomBoder" style="text-align: center;">
+							<p class="font_style"><span class="rectification">未整改</span><span class="font_color">31</span><span class="rectification">已整改</span><span class="font_color">21</span></p>
+						</div>
+					</div>
+				</div>-->
+				<div class="left_big"style="height: 30%;">
+					<div id='statistical_rightBottom' class="color_w" style="height: 100%;">
+						<div class="div_title">
+							<span class="pull-left span_title">材料检测不合格报告走势</span>
+							<div class="clearfix"></div>
+						</div>
+						<div id='material'>
+							
+						</div>
+					</div>
+				</div>
+				<!--第三层列表开始-->
+				
+				<div class="left_big" style="height: 25%;">
+					
+					<!--上侧标题开始 -->
+					<!--<div class="div_title">
+						<span class="pull-left span_title">预警信息</span>
+					</div>
+					<div class="clearfix"></div>-->
+					<!--做一个tab页-->
+					<ul id="myTab" class="nav nav-tabs">
+						<li class="active">
+							<a href="#home" data-toggle="tab" style="font-size:0.2rem;">
+								 质量预警
+							</a>
+						</li>
+						<li><a href="#ios" data-toggle="tab" style="font-size:0.2rem;">安全预警</a></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="home">
+							<div class="leftBottomBoder qizhong">
+								<ul style="padding-left: 15%;">
+									<li class="li_active">
+										<div class="li_div">
+											<span>超期末整改</span><span class="li_span">123</span>
+										</div>
+									</li>
+									<li>
+										<div class="li_div" style="padding: 0.05rem 0.1rem;">
+											<span>材料检测不合格</span><span class="li_span">999</span>
+										</div>
+									</li>
+									<div class="clearfix"></div>
+								</ul>
+							</div>
+							<div class="engineering" style="margin-top: 0.1rem; font-size: 0.2rem;height: 30%;">
+								<ul style="margin: 0;padding-left: 0.6rem;">
+									<li style="color: #fff;"><span class="pull-left">xxxxxxx工程</span><span class="pull-right" style="margin-right: 0.5rem;">19</span></li>
+								</ul>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="ios">
+							<div class="leftBottomBoder">
+								<ul class="ul_yang" style=" width: 94%;margin:0 3%;">
+									<li class="li_active li_width" style="">
+										<div class="li_div">
+											<span class="pull-left">超期末整改</span><span class="li_span pull-right">123</span>
+										</div>
+									</li>
+									<li class="li_width">
+										<div class="li_div" style="padding: 0.05rem 0.1rem;">
+											<span class="pull-left">起重机械</span><span class="li_span pull-right">999</span>
+										</div>
+									</li>
+									<li class="li_width">
+										<div class="li_div" style="padding: 0.05rem 0.1rem;">
+											<span class="pull-left">扬尘监控</span><span class="li_span pull-right">155</span>
+										</div>
+									</li>
+									<li class="li_width" style="margin: 0;">
+										<div class="li_div" style="padding: 0.05rem 0.1rem;">
+											<span class="pull-left">违法行为</span><span class="li_span pull-right">155</span>
+										</div>
+									</li>
+								</ul>
+								<div class="clearfix"></div>
+							</div>
+							<div class="engineering" style="margin-top: 0.1rem; font-size: 0.2rem;height: 30%;">
+								<ul style="margin: 0;padding-left: 0.6rem;">
+									<li style="color: #fff;"><span class="pull-left">xxxxxxx工程</span><span class="pull-right" style="margin-right: 0.5rem;">19</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--第一个预警盒子开始-->
+					<!--<div class='statistical_rightCenter'>
+						<span class="yellow_line pull-left"></span>
+						<span class="pull-left" style="font-size: 0.14rem;margin: 0 3%;">质量预警</span>
+						<span class="yellow_line pull-left"></span>
+					</div>
+					<div class="clearfix"></div>
+					<div class="leftBottomBoder qizhong">
+						<ul style="padding-left: 15%;">
+							<li class="li_active">
+								<div class="li_div">
+									<span>起重机械</span><span class="li_span">123</span>
+								</div>
+							</li>
+							<li>
+								<div class="li_div" style="padding: 0.05rem 0.1rem;">
+									<span>超期末整改</span><span class="li_span">999</span>
+								</div>
+							</li>
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+					<div class="engineering" style="margin-top: 0.1rem; font-size: 0.2rem;height: 30%;">
+						<ul style="margin: 0;padding-left: 0.6rem;">
+							<li style="color: #fff;"><span class="pull-left">xxxxxxx工程</span><span class="pull-right" style="margin-right: 0.5rem;">19</span></li>
+						</ul>
+					</div>-->
+					<!--下方预警内容开始-->
+					<!--<div class='statistical_rightCenter'>
+						<span class="yellow_line pull-left"></span>
+						<span class="pull-left" style="font-size: 0.14rem; margin: 0 3%;">安全预警</span>
+						<span class="yellow_line pull-left"></span>
+						<div class="clearfix"></div>
+					</div>
+					
+					<div class="leftBottomBoder">
+						<ul class="ul_yang" style=" width: 94%;margin:0 3%;">
+							<li class="li_active li_width" style="">
+								<div class="li_div">
+									<span class="pull-left">超期末整改</span><span class="li_span pull-right">123</span>
+								</div>
+							</li>
+							<li class="li_width">
+								<div class="li_div" style="padding: 0.05rem 0.1rem;">
+									<span class="pull-left">起重机械</span><span class="li_span pull-right">999</span>
+								</div>
+							</li>
+							<li class="li_width">
+								<div class="li_div" style="padding: 0.05rem 0.1rem;">
+									<span class="pull-left">扬尘监控</span><span class="li_span pull-right">155</span>
+								</div>
+							</li>
+							<li class="li_width" style="margin: 0;">
+								<div class="li_div" style="padding: 0.05rem 0.1rem;">
+									<span class="pull-left">违法行为</span><span class="li_span pull-right">155</span>
+								</div>
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="engineering" style="margin-top: 0.1rem; font-size: 0.2rem;height: 30%;">
+						<ul style="margin: 0;padding-left: 0.6rem;">
+							<li style="color: #fff;"><span class="pull-left">xxxxxxx工程</span><span class="pull-right" style="margin-right: 0.5rem;">19</span></li>
+						</ul>
+					</div>-->
+				</div>
+			</div>
+	</body>
+</html>

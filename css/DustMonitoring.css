@@ -1,0 +1,294 @@
+/*自适应修改样式*/
+			p{
+				margin: 0.05rem 0;
+			}
+			/*中间最外层盒子*/
+			.big_center{
+				width: 100%;
+				height: 93%;
+			}
+			.color_w{
+				height: 75%;
+				background-color: #2C4166 !important;
+			}
+			.main_left{
+				margin-left: 1%;
+				width: 30%;
+				height: 100%;
+			}
+			.main_center{
+				/*margin: 0 1.5%;*/
+				margin-left: 1%;
+				text-align: center;
+				width: 67%;
+				height: 100%;
+			}
+			/*.main_right{
+				margin-right: 1%;
+				width: 31%;
+				height: 100%;
+			}*/
+			#map{
+				width: 100%;
+				height:49%;
+/*				padding-top: 1.5%;*/
+				background-color: #3F4A5E !important;
+			}
+			#statistical_rightBottom{
+				text-align: center;
+			}
+			.mainCenterBottomLeft{
+				border-top: 0.01rem solid #32BDFE;
+				padding-top: 0.1rem;
+				float: left;
+				width: 49%;
+				height: 100%;
+				background-color: #2C4166 !important;
+			}
+			.mainCenterBottomRight{
+				border-top: 0.01rem solid #32BDFE;
+				padding-top: 0.1rem;
+				float: right;
+				width: 49%;
+				height: 100%;
+				background-color: #2C4166 !important;
+			}
+			#mainCenterBottom{
+				width: 100%;
+				height: 100%;
+				background-color: #2C4166 !important;
+			}
+			/*左侧中间最上面pm和国控外层盒子设置*/
+			.guokong{
+				width: 20%;
+				/*margin: 0 auto;*/
+				color: red;
+				font-size: 0.2rem;
+				position: absolute;
+				left: 18%;
+				top:33%;
+			}
+			/*塔吊大盒子设置*/
+			.taji_big{
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			/*左侧塔吊定位的两个盒子属性*/
+			.taji_top{
+				position: absolute;
+				top: -8%;
+				right: 10%;
+				font-size: 0.12rem;
+				color: #fff;
+			}
+			.taji_bottom{
+				position: absolute;
+				top: 2%;
+				right: 5%;
+				font-size: 0.14rem;
+				color: #fff;
+			}
+			/*塔机实时吊重统计图样式设置*/
+			#material{
+				width: 100%;
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			#taji{
+				width: 100%;
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			/*天数国控值盒子设置*/
+			#tian_guo{
+				width: 100%;
+				height: 90%;
+			}
+			/*年数国控值盒子设置*/
+			#nian_guo{
+				width: 100%;
+				height: 100%;
+			}
+			/*下拉框提示文字设置*/
+			.xuan{
+				color: #fff;
+				font-size: 0.16rem;
+			}
+			#mainCenterBottom1{
+				width: 100%;
+				height: 88%;
+				background-color: #2C4166 !important;
+			}
+			.leftBottomBoder{
+				width: 100%;
+				margin: 2% auto;
+			}
+			#mainLeftBottom{
+				text-align: center;
+			}
+			.statisticalBottomBoder{
+				margin: 0 2%;
+				background-color: #266AAB;
+				color: #fff;
+				font-size: 0.2rem;
+				border: 0.01rem solid #58B1D1;
+			}
+			.div_title{
+				height: 10%;
+				font-weight: bold;
+				width: 90%;
+				text-align: right;
+			}
+			.span_title{
+				font-size: 0.22rem;
+				color: #fff;
+			}
+			.left_big{
+				background-color: #2C4166 !important;
+				padding-top: 0.1rem;
+				margin-top: 2%;
+				height: 20%;
+				border-top: 0.01rem solid #32BDFE;
+			}
+			@media screen and (max-width: 320px) {
+				.leftBottomBoder ul{
+					width: 100% !important;
+				}
+				.ul_yang{
+					margin: 0 !important;
+				}
+				.leftBottomBoder .li_width{
+					width: auto !important;
+				}
+			}
+			@media screen and (max-width: 767px) {
+				.head_right span{
+						width: 8%;
+						font-size: 0.24rem;
+					}
+				li{
+					list-style: none;
+				}
+				.start_endTime{
+					width: 70%;
+				}
+				.span_yuan{
+						width: 1.5rem;
+						height: 1.5rem;
+					}
+				.kai_zuo{
+					line-height: 1.5rem;
+				}
+				.xiangmu{
+					margin-right: 2rem !important;
+				}
+				.head_left{
+					font-size: 0.8rem;
+				}
+				.head_right{
+					padding-right: 0.6rem;
+				}
+			}
+			@media screen and (min-width: 760px) {
+				/*.main_right{
+						top:208% !important;
+					}*/
+				.span_position{
+						width: 0.4rem !important;
+					}
+			}
+			@media screen and (min-width: 1367px) {
+				.li_width{
+					width: 24% !important;
+				}
+			}
+			@media screen and (max-width: 1023px) {
+					.li_width{
+						width: 24% !important;
+					}
+					#map{
+						height: 68%;
+					}
+					.span_position{
+						width: 1rem;
+					}
+					.main_left{
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						/*position: absolute;*/
+						/*top:110%;*/
+					}
+					.main_center{
+						/*position: absolute;*/
+						/*top:7%;*/
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						/*margin-top: -7%;*/
+					}
+					.main_right{
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						margin-top: -2%;
+						/*position: absolute;
+						top:238%;*/
+					}
+					.left_big{
+						background-color: #2C4166 !important;
+						padding-top: 0.1rem;
+						margin-top: 2%;
+						height: 30%;
+						border-top: 1px solid #32BDFE;
+					}
+					.mainCenterBottomLeft{
+						width: 100%;
+						margin-bottom: 2%;
+					}
+					.mainCenterBottomRight{
+						width: 100%;
+					}
+					.paimin{
+						margin-right: 1rem !important;
+					}
+				}
+			@media screen and (min-width: 4000px) {
+				
+					.progress{
+						border-radius: 0.04rem;
+					}
+					/*对easyui日期设置样式*/
+					.combo-arrow{
+						width: 0.32rem !important;
+						height: 0.4rem !important;
+						background-size: 100% 100%;
+					}
+					/*.calendar-title{
+						height: 0.22rem !important;
+					}
+					.combo-panel{
+						height: 4.2rem !important;
+					}*/
+					.calendar-header{
+						height: 0.25rem;
+					}
+					.calendar-nextyear{
+						background-size:100% 100% ;
+						width: 1rem !important;
+						height: 0.2rem !important;
+						margin-top: -0.1rem;
+						right: -0.2rem;
+					}
+					.calendar-prevmonth{
+						background-size:100% 100% ;
+						width: 1rem !important;
+						height: 0.2rem !important;
+						margin-top: -0.1rem;
+						left: -0.08rem;
+					}
+				}
+			@media screen and (min-width: 7000px) {
+					
+				}

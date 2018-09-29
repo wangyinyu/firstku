@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap-theme.css" />
+		<link href="js/jquery-easyui-1.4.3/themes/default/easyui.css" rel="stylesheet" />
+    	<link href="js/jquery-easyui-1.4.3/themes/icon.css" rel="stylesheet" />
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-easyui-1.4.3/jquery.easyui.min.js" type="text/javascript"></script>
+    	<script src="js/jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    	<script src="js/echarts.min.js"></script>
+    	<script type="text/javascript" src="js/chengdu.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/construction.js" ></script>
+		<script>
+		
+      (function (doc, win) {
+          var docEl = doc.documentElement,
+              resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+              recalc = function () {
+                  var clientWidth = docEl.clientWidth;
+                 if (!clientWidth) return;
+                  if(clientWidth>=1920){
+                     docEl.style.fontSize = '100px';
+                 }else{
+                     docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+                }
+            };
+
+	        if (!doc.addEventListener) return;
+	         win.addEventListener(resizeEvt, recalc, false);
+	        doc.addEventListener('DOMContentLoaded', recalc, false);
+	    	})(document, window);
+		</script>
+		<style type="text/css">
+			/*自适应修改样式*/
+			html,body{
+				background-color: #3F4A5E;
+				width: 100%;
+				height: 100%;
+			}
+			.color_w{
+				height: 75%;
+				background-color: #2C4166 !important;
+			}
+			.main_left{
+				margin-left: 1%;
+				width: 25%;
+				height: 100%;
+			}
+			.main_center{
+				margin: 0 1.5%;
+				text-align: center;
+				width: 45%;
+				height: 100%;
+			}
+			.main_right{
+				margin-right: 1%;
+				width: 25%;
+				height: 100%;
+			}
+			#wrong-message{
+				
+			}
+			#map{
+				width: 100%;
+				height:90%;
+				padding-top: 11%;
+				background-color: #3F4A5E !important;
+			}
+			#statistical_right{
+				
+			}
+			#statistical_rightBottom{
+				text-align: center;
+			}
+			#mainLeftCenter{
+				
+			}
+			.mainCenterBottomLeft{
+				border-top: 1px solid #32BDFE;
+				padding-top: 0.1rem;
+				float: left;
+				width: 49%;
+				height: 100%;
+				background-color: #2C4166 !important;
+			}
+			.mainCenterBottomRight{
+				border-top: 1px solid #32BDFE;
+				padding-top: 0.1rem;
+				float: right;
+				width: 49%;
+				height: 100%;
+				background-color: #2C4166 !important;
+			}
+			#mainCenterBottom{
+				width: 100%;
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			#mainCenterBottom1{
+				
+				width: 100%;
+				height: 85%;
+				background-color: #2C4166 !important;
+			}
+			.leftBottomBoder{
+				width: 100%;
+				margin: 2% auto;
+			}
+			.leftBottomBoder li{
+				width: 40%;
+				/*text-align: center;*/
+				list-style: none;
+				float: left;
+				margin-right: 0.05rem;
+				background-color: #456FA3;
+				cursor: pointer;
+				color: #fff;
+			}
+			.main_left .leftBottomBoder .ul_li li{
+				width: 31%;
+			}
+			#mainLeftBottom{
+				text-align: center;
+			}
+			.li_div{
+				width: 100%;
+				padding: 0.05rem;
+				 /*display: flex;
+    			align-items: center;*/
+    			text-align: center !important;
+    			font-size: 0.12rem;
+			}
+			.li_active{
+				background-color: #80B2ED !important;
+				color: #3D5C9C !important;
+			}
+			.li_span{
+				border-radius: 50%;
+				background-color: red;
+				/*display: flex;
+    			align-items: center;*/
+    			padding: 0.05rem;
+    			color: #fff;
+    			/*margin-left: 0.1rem;*/
+			}
+			ul{
+				padding: 0;
+			}
+			.statisticalBottomBoder{
+				margin: 0 2%;
+				background-color: #266AAB;
+				color: #fff;
+				font-size: 0.2rem;
+				border: 1px solid #58B1D1;
+			}
+			.span_title{
+				font-size: 0.2rem;
+				margin-left: 0.1rem;
+				color: #fff;
+			}
+			.div_title{
+				height: 9%;
+				font-weight: bold;
+			}
+			.span_img{
+				width: 0.4rem;
+				cursor: pointer;
+				color: #fff;
+			}
+			.span_select{
+				margin-right: 0.1rem;
+			}
+			.left_big{
+				background-color: #2C4166 !important;
+				padding-top: 0.1rem;
+				margin-top: 2%;
+				height: 20%;
+				border-top: 1px solid #32BDFE;
+			}
+			.see{
+					border: 1px solid #93BCDE;
+					border-radius: 12%;
+					color: #8AB2D5;
+					font-size: 0.12rem;
+					padding:0 0.1rem;
+					margin-right: 0.2rem;
+				}
+			/*现场页面样式设置*/
+			.font_style{
+				padding-top: 10%;
+			}	
+			.rectification{
+				color: #60D9E1;
+				margin-right: 0.1rem;
+			}
+			.font_color{
+				color: #E7F108;
+				margin-right: 0.4rem;
+				font-size: 0.22rem;
+			}
+			.yellow_line{
+				height: 1px;
+				width: 37%;
+				background-color: #818E4A;
+				display: block;
+			}
+			.statistical_rightCenter{
+				width: 98%; 
+				margin: 0 1%; 
+				color: #FBFE23;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.li_width{
+				width: 30% !important;
+			}
+			.div_button{
+				width: 100%;
+				height: 10%;
+				text-align: center;
+			}
+			.div_image{
+				width: 60%;
+				height: 89%;
+				background: url(img/plane.png) no-repeat;
+				background-size: 100% 100%;
+				margin: 0 auto;
+				position: relative;
+			}
+			.progress_time{
+				width: 100%;
+				text-align: center;
+			}
+			.start_endTime{
+				width: 60%;
+				margin: 0 auto;
+				color: #60D9E1;
+				font-size: 0.12rem;
+			}
+			/*进度条样式设置*/
+			.jindu{
+				width: 50%;
+				height: 14px;
+				margin: 0 auto;
+			}
+			/*图片定位*/
+			.span_position{
+				cursor: pointer;
+				position: absolute;
+				width: 0.4rem;
+			}
+			.ta_img{
+				width: 100%;
+			}
+			@media screen and (max-width: 767px) {
+				.div_button{
+						margin-top: -9%;
+					}
+				.main_right{
+					top:235% !important;
+				}
+				li{
+					list-style: none;
+				}
+			}
+			@media screen and (max-width: 1024px) {
+					#map{
+						height: 68%;
+					}
+					.span_position{
+						width: 1rem;
+					}
+					.main_left{
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						position: absolute;
+						top:100%;
+					}
+					.main_center{
+						position: absolute;
+						/*top:7%;*/
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						/*margin-top: -7%;*/
+					}
+					.main_right{
+						float: none;
+						width: 98%;
+						margin: 0 1%;
+						margin-top: -10%;
+						position: absolute;
+						top:238%;
+					}
+					.left_big{
+						background-color: #2C4166 !important;
+						padding-top: 0.1rem;
+						margin-top: 2%;
+						height: 30%;
+						border-top: 1px solid #32BDFE;
+					}
+					.map_select{
+						height: 7% !important;
+					}
+					.span_img{
+						width: 1.4rem;
+					}
+					#statistical_rightBottom li{
+						list-style: none;
+					}
+					#mainLeftBottom li{
+						list-style: none;
+					}
+					.mainCenterBottomLeft{
+						width: 100%;
+						margin-bottom: 2%;
+					}
+					.mainCenterBottomRight{
+						width: 100%;
+					}
+					.paimin{
+						margin-right: 1rem !important;
+					}
+					.div_button button{
+						width: 80%;
+						margin-bottom: 10px;
+					}
+					/*.div_button{
+						margin-top: -9%;
+					}*/
+				}
+				#ec4{
+					width: 100%;
+					height: 80%;
+				}
+		</style>
+	</head>
+	<body>
+			<!--左侧布局开始-->
+			<div class="main_left pull-left">
+				<!--左侧上方大盒子-->
+				<div class="left_big" style="height: 35%;">
+					<!--上侧标题开始-->
+					<div class="div_title"> 
+						<span class="pull-left span_title">工程概况</span>
+					</div>
+					<div class="clearfix"></div>
+					<!--左侧中间统计图开始-->
+					<!--<div id="mainLeftCenter" class="color_w">
+					</div>-->
+				</div>
+				<!--左侧第二个大盒子-->
+				<div class="left_big">
+				<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">项目进度</span>
+					</div>
+					<div class="clearfix"></div>
+					<!--选项框按钮开始-->
+						<div class="leftBottomBoder">
+							<div class="progress_time"><span class="rectification">剩余</span><span class="font_color" style="margin-right: 0.1rem;">485</span><span class="rectification">天</span></div>
+							<div class="jindu progress progress-striped">
+							    <div class="progress-bar progress-bar-warning" role="progressbar"
+							         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+							         style="width: 60%;">
+							        <span class="sr-only"></span>
+							    </div>
+							</div>
+						</div>
+					<!--饼状图左侧开始-->
+					<div class="start_endTime">
+						<span class="pull-left">2017-09-15</span>
+						<span class="pull-right">2019-09-15</span>
+					</div>
+				</div>
+				<!--左侧下方列表开始-->
+				<div class="left_big">
+					<div id="mainLeftBottom" style="height: 100%;width: 100%;">
+						<!--第三层工人数据开始-->
+						<div class="div_title">
+							<span class="pull-left span_title">实时工人</span>
+							<div class="clearfix"></div>
+						</div>
+						<div class="leftBottomBoder" style="text-align: center;width: 40%;margin: 0 auto;">
+							<div class="font_style" style="padding-top:28% ;">
+								<span class="glyphicon glyphicon-user pull-left" style="color: #6CFEFE;margin-right: 0.2rem;"></span>
+								<span class="rectification pull-left" >在场工人</span>
+								<span class="font_color pull-right" style="margin: 0;">31</span>
+								<div class="clearfix"></div>
+							</div>
+							
+							<div class="font_style" style="padding: 0;">
+								<span class="pull-left" style="margin-right: 0.16rem;"><img style="width: 18px;" src="img/peoples.png"/></span>
+								<span class="rectification pull-left">班组</span>
+								<span class="font_color pull-right" style="margin: 0;">11</span>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="left_big">
+					<div id="mainLeftBottom" style="height: 100%;width: 100%;">
+						<!--上侧标题开始-->
+						<div class="div_title">
+							<span class="pull-left span_title">设备在线</span>
+							<div class="clearfix"></div>
+						</div>
+						<div class="leftBottomBoder" style="text-align: center;">
+							<p class="font_style"><span class="rectification">塔吊</span><span class="font_color">2/2</span><span class="rectification">考勤</span><span class="font_color">4/2</span></p>
+							<p class="font_style" style="padding: 0;"><span class="rectification">视频</span><span class="font_color">3/1</span><span class="rectification">扬尘</span><span class="font_color">1/1</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--中间部分开始-->
+			<div class='main_center pull-left'>
+				
+				<!--地图开始-->
+				<div id='map'>
+					<div class="div_image">
+						<span class="span_position" style="top:45%"><img class="ta_img" src="img/video2.png"/></span>
+						<span class="span_position" style="top:20%;left: 30%;"><img class="ta_img" src="img/tadiao.png"/></span>
+						<span class="span_position" style="top:30%;left: 20%;"><img class="ta_img" src="img/video2.png"/></span>
+						<span class="span_position" style="top:30%;right: 40%;"><img class="ta_img" src="img/tadiao.png"/></span>
+						<span class="span_position" style="top:35%; right: 50%;"><img class="ta_img" src="img/video2.png"/></span>
+						<span class="span_position" style="top:20%;"><img class="ta_img" src="img/tadiao.png"/></span>
+						<span class="span_position" style="top:80%; right: 30%;"><img class="ta_img" src="img/video2.png"/></span>
+						<span class="span_position" style="top:80%; left: 40%;"><img class="ta_img" src="img/tadiao.png"/></span>
+					</div>
+				</div>
+				<div class="div_button">
+					<button type="button" class="btn btn-info">塔吊监控</button>
+					<button type="button" class="yang btn btn-info">扬尘在线监控</button>
+					<button type="button" class="btn btn-info">人员管理</button>
+					<button type="button" class="btn btn-info">升降机监控</button>
+					<button type="button" class="btn btn-info">视频监控</button>
+				</div>
+			</div>	
+			<!--右侧布局开始-->
+			<div class="main_right pull-right">
+				<!--右侧第一个大盒子-->
+				<div class="left_big">
+					<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">质量问题</span>
+						<div class="clearfix"></div>
+					</div>
+				<!--第一层统计图开始-->
+					<div id='statistical_right' class="color_w" style="height: 76%;text-align: center;">
+						<p class="font_style"><span class="rectification">未整改</span><span class="font_color">31</span><span class="rectification">已整改</span><span class="font_color">21</span></p>
+					</div>
+				</div>
+				<!--右侧第二个大盒子-->
+					<div class="left_big">
+				<div id='statistical_rightBottom' class="color_w">
+					<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">安全问题</span>
+					</div>
+					<div class="clearfix"></div>
+					<!--选项框按钮开始-->
+						<div class="leftBottomBoder" style="text-align: center;">
+							<p class="font_style"><span class="rectification">未整改</span><span class="font_color">31</span><span class="rectification">已整改</span><span class="font_color">21</span></p>
+						</div>
+				</div>
+				</div>
+				<!--第三层列表开始-->
+				
+				<div class="left_big" style="height: 56%;">
+					<!--上侧标题开始-->
+					<div class="div_title">
+						<span class="pull-left span_title">预警信息</span>
+					</div>
+					<div class="clearfix"></div>
+					<!--第一个预警盒子开始-->
+					<div class='statistical_rightCenter'>
+						<span class="yellow_line pull-left"></span>
+						<span class="pull-left" style="font-size: 0.14rem;margin: 0 3%;">质量预警</span>
+						<span class="yellow_line pull-left"></span>
+					</div>
+					<div class="clearfix"></div>
+					<div class="leftBottomBoder">
+						<ul style="margin-left: 15%;">
+							<li class="li_active">
+								<div class="li_div">
+									<span>起重机械</span><span class="li_span">155</span>
+								</div>
+							</li>
+							<li>
+								<div class="li_div" style="padding: 0.05rem 0.1rem;">
+									<span>超期末整改</span><span class="li_span">155</span>
+								</div>
+							</li>
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+					<div class="engineering" style="margin-top: 0.1rem; font-size: 0.2rem;height: 30%;">
+						<ul style="margin: 0;padding-left: 0.6rem;">
+							<li style="color: #fff;"><span class="pull-left">xxxxxxx工程</span><span class="pull-right" style="margin-right: 0.5rem;">19</span></li>
+						</ul>
+					</div>
+					<!--下方预警内容开始-->
+					<div class='statistical_rightCenter'>
+						<span class="yellow_line pull-left"></span>
+						<span class="pull-left" style="font-size: 0.14rem; margin: 0 3%;">安全预警</span>
+						<span class="yellow_line pull-left"></span>
+						<div class="clearfix"></div>
+					</div>
+					
+					<div class="leftBottomBoder">
+						<ul style=" width: 100%;margin-left: 4%;">
+							<li class="li_active li_width">
+								<div class="li_div">
+									<span>超期末整改</span><span class="li_span">155</span>
+								</div>
+							</li>
+							<li class="li_width">
+								<div class="li_div" style="padding: 0.05rem 0.1rem;">
+									<span>见证异常</span><span class="li_span">155</span>
+								</div>
+							</li>
+							<li class="li_width">
+								<div class="li_div" style="padding: 0.05rem 0.1rem;">
+									<span>报告不合格</span><span class="li_span">155</span>
+								</div>
+							</li>
+							
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="engineering" style="margin-top: 0.1rem; font-size: 0.2rem;height: 30%;">
+						<ul style="margin: 0;padding-left: 0.6rem;">
+							<li style="color: #fff;"><span class="pull-left">xxxxxxx工程</span><span class="pull-right" style="margin-right: 0.5rem;">19</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	</body>
+</html>
